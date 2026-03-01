@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bj66ywkh1mrdp"]
+
+[ext_resource type="Texture2D" uid="uid://cjkdvk1y1o8d3" path="res://ai_block.png" id="1_vdom5"]
+
+[node name="AIBLOCK" type="Control" unique_id=1576387466]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="TextureRect" parent="." unique_id=1026792025]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_vdom5")
+expand_mode = 3
+
+[node name="TITLE" type="Label" parent="." unique_id=1448852382]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 24.0
+offset_right = 772.0
+offset_bottom = 74.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 39
+text = "YOUR ginoAI SESSION HAS BEEN BLOCKED"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=65985935]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 72.0
+offset_right = 824.0
+offset_bottom = 336.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Our automated reporting system has flagged activity on your account that appears to violate our Terms of Service (ToS).
+ginoAI is a community-driven project built by dedicated volunteers to provide a free, helpful resource for everyone. Maintaining a safe and secure environment is our highest priority. Inappropriate use—including attempts to bypass security or generate harmful content—risks the integrity of the platform and the safety of our community.
+We kindly ask that you use ginoAI responsibly and in accordance with our guidelines. Please be aware that continued violations may result in a permanent suspension of your access.
+Thank you for helping us keep this project safe and sustainable.
+
+— The ginoAI Team"

@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://bryl0pfysa40e"]
+
+[ext_resource type="Script" uid="uid://cv8gpp61orwxq" path="res://ban_screen.gd" id="1_6xqr2"]
+[ext_resource type="Texture2D" uid="uid://ch25qad3n4e4f" path="res://ban_screen.png" id="1_p7wtx"]
+
+[node name="BanScreen" type="Control" unique_id=2109429615]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6xqr2")
+
+[node name="BG" type="TextureRect" parent="." unique_id=1588818982]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_p7wtx")
+expand_mode = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1206987775]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 296.0
+offset_right = 768.0
+offset_bottom = 480.0
+focus_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "Ban reason:
+SupportID: CB1234567891234"
+selection_enabled = true
+
+[node name="Appeal" type="LinkButton" parent="." unique_id=531833769]
+editor_description = "ma il processo di appeal viene eseguito tramiite e-mail o meet apri tally"
+layout_mode = 0
+offset_left = 15.0
+offset_top = 216.0
+offset_right = 240.0
+offset_bottom = 232.0
+underline = 1
+uri = "https://tally.ecceccecc"

@@ -1,0 +1,173 @@
+[gd_scene format=3 uid="uid://c668jbwxqinde"]
+
+[ext_resource type="Script" uid="uid://b0njicb80chum" path="res://welcome.gd" id="1_6xvht"]
+[ext_resource type="Texture2D" uid="uid://cppuw0n2uy0sb" path="res://GinoAI-Icon.png" id="1_hp420"]
+[ext_resource type="Texture2D" uid="uid://bw1lny3733b86" path="res://BG1.png" id="1_odedu"]
+[ext_resource type="Texture2D" uid="uid://ba3wek1a33cvh" path="res://ContinueWelcome.png" id="4_f0t8f"]
+[ext_resource type="AudioStream" uid="uid://cu4fqdadtono4" path="res://StartUp.mp3" id="5_roe5y"]
+
+[sub_resource type="Animation" id="Animation_f0t8f"]
+resource_name = "Welcome"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BG/Logo:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4.98),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Welcome:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(4.02, 9.51),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Continue:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(9.5, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Continue:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(9.53, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 7.02),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yo83p"]
+_data = {
+&"Welcome": SubResource("Animation_f0t8f")
+}
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_roe5y"]
+texture = ExtResource("4_f0t8f")
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yo83p"]
+texture = ExtResource("4_f0t8f")
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2u335"]
+texture = ExtResource("4_f0t8f")
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f0t8f"]
+texture = ExtResource("4_f0t8f")
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="InputEventKey" id="InputEventKey_roe5y"]
+device = -1
+keycode = 4194309
+
+[sub_resource type="InputEventKey" id="InputEventKey_yo83p"]
+device = -1
+keycode = 32
+unicode = 32
+
+[sub_resource type="Shortcut" id="Shortcut_2u335"]
+events = [SubResource("InputEventKey_roe5y"), SubResource("InputEventKey_yo83p")]
+
+[node name="Welcome" type="Control" unique_id=1414125656]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6xvht")
+
+[node name="BG" type="TextureRect" parent="." unique_id=1774522200]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 649.0
+texture = ExtResource("1_odedu")
+
+[node name="Logo" type="TextureRect" parent="BG" unique_id=1948921696]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 384.0
+offset_top = 24.0
+offset_right = 768.0
+offset_bottom = 408.0
+texture = ExtResource("1_hp420")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Welcome Animation" type="AnimationPlayer" parent="." unique_id=1598630273]
+libraries/ = SubResource("AnimationLibrary_yo83p")
+
+[node name="Welcome" type="Label" parent="." unique_id=5171866]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 216.0
+offset_top = 488.0
+offset_right = 936.0
+offset_bottom = 580.0
+theme_override_colors/font_color = Color(0.39215687, 0.39215687, 0.4, 1)
+theme_override_font_sizes/font_size = 70
+text = "WELCOME TO GINO AI"
+horizontal_alignment = 1
+
+[node name="Continue" type="Button" parent="." unique_id=817996057]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_top = 600.0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_roe5y")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_yo83p")
+theme_override_styles/hover = SubResource("StyleBoxTexture_2u335")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_f0t8f")
+shortcut = SubResource("Shortcut_2u335")
+text = "Continue"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=165068045]
+stream = ExtResource("5_roe5y")
+
+[node name="Fader" type="ColorRect" parent="." unique_id=681200716]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = -152.0
+offset_top = -128.0
+offset_right = 1400.0
+offset_bottom = 832.0
+color = Color(0, 0, 0, 1)
+
+[connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]

@@ -1,0 +1,453 @@
+[gd_scene load_steps=27 format=3 uid="uid://bgq63rcjxrus1"]
+
+[ext_resource type="Script" uid="uid://80g5bsq0grvm" path="res://oobe.gd" id="1_51cl6"]
+[ext_resource type="Texture2D" uid="uid://c0kwlngucx2h3" path="res://bg3.png" id="2_f0vvb"]
+[ext_resource type="Texture2D" uid="uid://dytovc10ja8sm" path="res://OOBEBGLG.png" id="3_f0vvb"]
+[ext_resource type="Shader" uid="uid://dy00nbpo2odli" path="res://liquidGlass.gdshader" id="3_uwy3f"]
+[ext_resource type="Texture2D" uid="uid://bgvae6s7cep8f" path="res://oobeinput1.png" id="4_1b84p"]
+[ext_resource type="AudioStream" uid="uid://bj5rfeirswr4m" path="res://nature-investigation-255161.mp3" id="5_uwy3f"]
+[ext_resource type="Texture2D" uid="uid://bahfhuabjcgq6" path="res://NewChat.png" id="8_0smpt"]
+[ext_resource type="Texture2D" uid="uid://dl3021kpu33xg" path="res://save_164dp_E3E3E3_FILL0_wght400_GRAD0_opsz48.svg" id="8_d7rfo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_huw1e"]
+render_priority = 0
+shader = ExtResource("3_uwy3f")
+shader_parameter/Refraction_Strength = 0.05
+shader_parameter/Fresnel_Power = 1.0
+shader_parameter/Emission_Power = 1.0
+shader_parameter/Specular_Power = 1.0
+shader_parameter/Roughness_Power = 0.1
+shader_parameter/Rim_Power = 0.1
+shader_parameter/Blur = 0.0
+shader_parameter/Taint = Color(1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_huw1e"]
+resource_name = "Presentation"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Presentation1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.99),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Presentation1:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Presentation2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 5.02, 9.002281),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("NameInput:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 5, 9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Label:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 5.01),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_uwy3f"]
+resource_name = "Presentation2"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Presentation3:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_if7eu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Presentation3:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d7rfo"]
+_data = {
+&"Presentation": SubResource("Animation_huw1e"),
+&"Presentation2": SubResource("Animation_uwy3f"),
+&"RESET": SubResource("Animation_if7eu")
+}
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0smpt"]
+content_margin_left = 5.0
+texture = ExtResource("4_1b84p")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4x1hj"]
+texture = ExtResource("4_1b84p")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y6tiy"]
+texture = ExtResource("4_1b84p")
+
+[sub_resource type="Theme" id="Theme_d7rfo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0smpt"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bukky"]
+texture = ExtResource("8_0smpt")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sd3d4"]
+texture = ExtResource("8_0smpt")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aror5"]
+texture = ExtResource("8_0smpt")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0jebo"]
+texture = ExtResource("8_0smpt")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yjw6t"]
+texture = ExtResource("8_0smpt")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ksdlh"]
+texture = ExtResource("8_0smpt")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n3ycd"]
+texture = ExtResource("8_0smpt")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qp47e"]
+texture = ExtResource("8_0smpt")
+
+[node name="OOBE" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_51cl6")
+
+[node name="ToS" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="BG" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_f0vvb")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="OOBEscreen1" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_huw1e")
+layout_mode = 0
+offset_left = 72.0
+offset_top = 32.0
+offset_right = 1083.1045
+offset_bottom = 616.0
+texture = ExtResource("3_f0vvb")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Presentation1" type="Label" parent="OOBEscreen1"]
+visible = false
+layout_mode = 0
+offset_left = 289.0
+offset_top = 208.0
+offset_right = 719.0
+offset_bottom = 347.0
+theme_override_font_sizes/font_size = 51
+text = "Oh!
+We haven't met yet"
+horizontal_alignment = 1
+
+[node name="Presentation2" type="Label" parent="OOBEscreen1"]
+layout_mode = 0
+offset_left = 289.0
+offset_top = 208.0
+offset_right = 719.0
+offset_bottom = 347.0
+theme_override_font_sizes/font_size = 51
+text = "You must be..."
+horizontal_alignment = 1
+
+[node name="Notification" type="RichTextLabel" parent="OOBEscreen1/Presentation2"]
+layout_mode = 0
+offset_left = -193.0
+offset_top = 144.0
+offset_right = 623.0
+offset_bottom = 224.0
+bbcode_enabled = true
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="OOBEscreen1"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 424.0
+offset_top = 368.0
+offset_right = 583.0
+offset_bottom = 390.0
+text = "Press Enter to continue"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="OOBEscreen1"]
+libraries = {
+&"": SubResource("AnimationLibrary_d7rfo")
+}
+
+[node name="NameInput" type="LineEdit" parent="OOBEscreen1"]
+layout_mode = 0
+offset_left = 233.0
+offset_top = 280.0
+offset_right = 777.0
+offset_bottom = 352.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_0smpt")
+theme_override_styles/read_only = SubResource("StyleBoxTexture_4x1hj")
+theme_override_styles/focus = SubResource("StyleBoxTexture_y6tiy")
+placeholder_text = "Type your name here"
+
+[node name="Presentation3" type="Label" parent="OOBEscreen1"]
+visible = false
+layout_mode = 0
+offset_left = 225.0
+offset_top = 8.0
+offset_right = 786.0
+offset_bottom = 76.0
+theme_override_font_sizes/font_size = 51
+text = "What do you need me for"
+horizontal_alignment = 1
+
+[node name="StudyCK" type="CheckBox" parent="OOBEscreen1/Presentation3"]
+layout_mode = 0
+offset_left = -41.0
+offset_top = 243.0
+offset_right = 28.0
+offset_bottom = 273.0
+scale = Vector2(1.5, 1.5)
+text = "Study"
+
+[node name="ChattingCK" type="CheckBox" parent="OOBEscreen1/Presentation3"]
+layout_mode = 0
+offset_left = -35.0
+offset_top = 116.0
+offset_right = 53.0
+offset_bottom = 140.0
+scale = Vector2(1.5, 1.5)
+theme = SubResource("Theme_d7rfo")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0smpt")
+text = "Chatting"
+
+[node name="GamingCK" type="CheckBox" parent="OOBEscreen1/Presentation3"]
+layout_mode = 0
+offset_left = -41.0
+offset_top = 152.0
+offset_right = 42.0
+offset_bottom = 182.0
+scale = Vector2(1.5, 1.5)
+text = "Gaming"
+
+[node name="Work" type="CheckBox" parent="OOBEscreen1/Presentation3"]
+layout_mode = 0
+offset_left = -41.0
+offset_top = 196.99998
+offset_right = 42.0
+offset_bottom = 226.99998
+scale = Vector2(1.5, 1.5)
+text = "Work
+"
+
+[node name="next" type="Button" parent="OOBEscreen1/Presentation3"]
+layout_mode = 0
+offset_left = -41.0
+offset_top = 296.0
+offset_right = 103.0
+offset_bottom = 352.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_bukky")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_sd3d4")
+theme_override_styles/hover = SubResource("StyleBoxTexture_aror5")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_0jebo")
+text = "Next"
+icon_alignment = 1
+
+[node name="Presentation4Intro" type="Label" parent="OOBEscreen1"]
+visible = false
+layout_mode = 0
+offset_left = 280.0
+offset_top = 40.0
+offset_right = 728.0
+offset_bottom = 98.0
+theme_override_font_sizes/font_size = 43
+text = "Tell me your level of use"
+
+[node name="BasicButton" type="Button" parent="OOBEscreen1/Presentation4Intro"]
+layout_mode = 0
+offset_left = -34.0
+offset_top = 112.0
+offset_right = 192.2857
+offset_bottom = 200.0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxTexture_yjw6t")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ksdlh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_n3ycd")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_qp47e")
+text = "Basic"
+icon_alignment = 1
+
+[node name="ExtremeButton" type="Button" parent="OOBEscreen1/Presentation4Intro"]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 112.0
+offset_right = 482.2857
+offset_bottom = 200.0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxTexture_yjw6t")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ksdlh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_n3ycd")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_qp47e")
+text = "Extreme"
+icon_alignment = 1
+
+[node name="Label" type="RichTextLabel" parent="OOBEscreen1/Presentation4Intro"]
+layout_mode = 0
+offset_left = -104.0
+offset_top = 216.0
+offset_right = 561.0
+offset_bottom = 352.0
+text = "What changes here that if you choose Basic We will take you directly to the GinoAI home screen.
+ If you choose Extreme you will setup need to custom API to unlock more advanced AI models"
+horizontal_alignment = 1
+
+[node name="APIsetup" type="Label" parent="OOBEscreen1"]
+visible = false
+layout_mode = 0
+offset_left = 440.0
+offset_top = 16.0
+offset_right = 569.0
+offset_bottom = 54.0
+theme_override_font_sizes/font_size = 28
+text = "API SETUP"
+
+[node name="LineEdit" type="LineEdit" parent="OOBEscreen1/APIsetup"]
+layout_mode = 0
+offset_left = -424.0
+offset_top = 144.0
+offset_right = 440.0
+offset_bottom = 200.0
+placeholder_text = "Enter your API here"
+
+[node name="Button" type="Button" parent="OOBEscreen1/APIsetup"]
+layout_mode = 0
+offset_left = 456.0
+offset_top = 144.0
+offset_right = 512.0
+offset_bottom = 200.0
+icon = ExtResource("8_d7rfo")
+
+[node name="HelpLabel" type="RichTextLabel" parent="OOBEscreen1/APIsetup"]
+layout_mode = 0
+offset_left = -424.0
+offset_top = 120.0
+offset_right = 432.0
+offset_bottom = 142.0
+bbcode_enabled = true
+
+[node name="skip" type="Button" parent="OOBEscreen1/APIsetup"]
+visible = false
+layout_mode = 0
+offset_left = -168.0
+offset_top = 216.0
+offset_right = 232.0
+offset_bottom = 264.0
+text = "Skip"
+
+[node name="Final" type="Label" parent="OOBEscreen1"]
+visible = false
+layout_mode = 0
+offset_left = 434.0
+offset_top = 277.0
+offset_right = 575.0
+offset_bottom = 299.0
+text = "We are almost there"
+
+[node name="DevSkip" type="Button" parent="OOBEscreen1/Final"]
+layout_mode = 0
+offset_left = -188.0
+offset_top = 99.0
+offset_right = 310.0
+offset_bottom = 182.0
+text = "next
+(per roman: questa parte non é ancora sviluppata per ora c'é questo😭)"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_uwy3f")
+autoplay = true
+parameters/looping = true
+
+[connection signal="text_submitted" from="OOBEscreen1/NameInput" to="." method="_on_line_edit_text_submitted"]
+[connection signal="pressed" from="OOBEscreen1/Presentation3/StudyCK" to="." method="_on_study_ck_pressed"]
+[connection signal="pressed" from="OOBEscreen1/Presentation3/ChattingCK" to="." method="_on_chatting_ck_pressed"]
+[connection signal="pressed" from="OOBEscreen1/Presentation3/GamingCK" to="." method="_on_gaming_ck_pressed"]
+[connection signal="pressed" from="OOBEscreen1/Presentation3/Work" to="." method="_on_work_pressed"]
+[connection signal="pressed" from="OOBEscreen1/Presentation3/next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="OOBEscreen1/Presentation4Intro/BasicButton" to="." method="_on_basic_button_pressed"]
+[connection signal="pressed" from="OOBEscreen1/Presentation4Intro/ExtremeButton" to="." method="_on_extreme_button_pressed"]
+[connection signal="pressed" from="OOBEscreen1/APIsetup/Button" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="OOBEscreen1/APIsetup/skip" to="." method="_on_skip_pressed"]
+[connection signal="pressed" from="OOBEscreen1/Final/DevSkip" to="." method="_on_dev_skip_pressed"]
